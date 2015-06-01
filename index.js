@@ -30,7 +30,7 @@ router.post('/service', function (req, res) {
 })
 
 router.get('/service/:id', function (req, res) {
-    res.status(200).send(JSON.stringify(sessions[req.params.id], null, 4));
+    res.status(200).json(sessions[req.params.id]);
 })
 router.get('/service', function (req, res) {
     res.status(400).send('You were supposed to make a POST request')
