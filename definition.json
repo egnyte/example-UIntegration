@@ -4,8 +4,8 @@
     "website":"http://xkcd.com",
     "name": "Example UI Integration",
     "description": "Example UI Integration for testing purposes. Contains both kinds of invocation pattern",
-    "serviceURL": "https://integrations-staging.qa-egnyte.com/service",
-    "hostingURL": "https://integrations-staging.qa-egnyte.com/staticapp",
+    "serviceURL": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
+    "hostingURL": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp",
     "accessLevel": "write",
     "integration": [
         {
