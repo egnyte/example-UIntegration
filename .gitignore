@@ -1,0 +1,8 @@
+node_modules/*
+~*
+npm-debug.log
+karma*
+/nbproject/*
+dependencies*.html
+coverage
+*.idea

@@ -1,0 +1,31 @@
+{
+    "appID": "eampleuint",
+    "author": "Your mum",
+    "website":"http://xkcd.com",
+    "name": "Example UI Integration",
+    "description": "Example UI Integration for testing purposes. Contains both kinds of invocation pattern",
+    "serviceURL": "https://integrations-staging.qa-egnyte.com/service",
+    "hostingURL": "https://integrations-staging.qa-egnyte.com/staticapp",
+    "accessLevel": "write",
+    "integration": [
+        {
+            "entrypoint": "contextmenu",
+            "invoke": "remote",
+            "types": ["file"],
+            "extensions": ["png","jpg"],
+            "item": {
+                "text": "Remote service call"
+            }
+        },
+        {
+            "entrypoint": "contextmenu",
+            "invoke": "hosted",
+            "types": ["file"],
+            "extensions": ["png"],
+            "item": {
+                "text": "Hosted app"
+            }
+        }
+    ]
+
+}

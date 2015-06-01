@@ -1,0 +1,1 @@
+Update URLs in definition.json, run the app and put a https proxy on top of it.

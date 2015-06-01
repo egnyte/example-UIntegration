@@ -1,0 +1,12 @@
+{
+  "apps": [
+    {
+      "name": "exampleuint",
+      "script": "./index.js",
+      "exec_mode": "fork_mode",
+      "error_file": "/var/log/exampleuint.log",
+      "out_file": "/var/log/exampleuint.log",
+      "merge_logs": true
+    }
+  ]
+}
