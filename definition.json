@@ -1,29 +1,38 @@
 {
     "appID": "exampleuint",
-    "author": "Your mum",
-    "website":"http://xkcd.com",
     "name": "Example UI Integration",
+    "author": "Your mum",
+    "support": {
+        "web": "http://xkcd.com",
+    },
+    "type": "both",
+    "appLogo": "http://goo.gl/F15gjA",
     "description": "Example UI Integration for testing purposes. Contains both kinds of invocation pattern",
-    "serviceURL": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
-    "hostingURL": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp",
-    "accessLevel": "write",
+    "screenshots": {
+        "images": ["http://imgs.xkcd.com/comics/antique_factory.png", , "http://imgs.xkcd.com/comics/the_bdlpswdks_effect.png", "http://imgs.xkcd.com/comics/placebo_blocker.png"]
+    },
+    "accessLevel": "fileSystem",
     "integration": [
         {
-            "entrypoint": "contextmenu",
-            "invoke": "remote",
+            "entrypoint": "context_menu",
             "types": ["file"],
-            "extensions": ["png","jpg"],
+            "accessLevel": "selection",
+            "serviceURL ": "https: //integrations-staging.qa-egnyte.com/exampleuint/service",
+            "extensions": ["png", "jpg"],
             "item": {
+                "invoke": "remote",
                 "text": "Remote service call"
             }
         },
         {
-            "entrypoint": "contextmenu",
-            "invoke": "hosted",
+            "entrypoint": "context_menu",
+            "hostingURL": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp",
             "types": ["file"],
             "extensions": ["png"],
             "item": {
-                "text": "Hosted app"
+                "invoke": "hosted",
+                "text": "Hosted app",
+                "tooltip": "hello"
             }
         }
     ]
