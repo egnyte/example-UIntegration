@@ -11,24 +11,29 @@
     "screenshots": {
         "images": ["http://imgs.xkcd.com/comics/antique_factory.png", "http://imgs.xkcd.com/comics/the_bdlpswdks_effect.png", "http://imgs.xkcd.com/comics/placebo_blocker.png"]
     },
+    "userSettings": "http://xkcd.com",
     "accessLevel": "fileSystem",
     "integration": [{
-        "entrypoint": "context_menu",
+        "allowedPaths": "/Shared/*",
+        "entryPoint": "context_menu",
         "types": ["file"],
         "accessLevel": "selection",
         "serviceURL ": "https: //integrations-staging.qa-egnyte.com/exampleuint/service",
         "extensions": ["png", "jpg"],
+        "permissionLevels": ["Owner", "full"],
+        "selectionQuantity": "single",
+        "invoke": "remote",
         "item": {
-            "invoke": "remote",
             "text": "Remote service call"
         }
     }, {
-        "entrypoint": "context_menu",
+        "entryPoint": "context_menu",
         "hostingURL": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp",
         "types": ["file"],
         "extensions": ["png"],
+        "selectionQuantity": [2, 5],
+        "invoke": "hosted",
         "item": {
-            "invoke": "hosted",
             "text": "Hosted app",
             "tooltip": "hello"
         }
