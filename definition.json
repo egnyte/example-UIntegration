@@ -19,7 +19,7 @@
             "allowedPaths": "/Shared/*",
             "types": ["file"],
             "accessLevel": "selection",
-            "serviceURL ": "https: //integrations-staging.qa-egnyte.com/exampleuint/service",
+            "serviceURL": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
             "extensions": ["png", "jpg"],
             "permissionLevels": ["Owner", "full"],
             "selectionQuantity": "single",
