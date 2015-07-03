@@ -13,7 +13,7 @@
     },
     "userSettings": "http://xkcd.com",
     "accessLevel": "fileSystem",
-    "integration": {
+    "integrations": {
         "myEditAction": {
             "entryPoint": "context_menu",
             "allowedPaths": "/Shared/*",
