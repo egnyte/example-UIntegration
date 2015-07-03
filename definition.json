@@ -13,30 +13,30 @@
     },
     "userSettings": "http://xkcd.com",
     "accessLevel": "fileSystem",
-    "integration": [{
-        "allowedPaths": "/Shared/*",
-        "entryPoint": "context_menu",
-        "types": ["file"],
-        "accessLevel": "selection",
-        "serviceURL ": "https: //integrations-staging.qa-egnyte.com/exampleuint/service",
-        "extensions": ["png", "jpg"],
-        "permissionLevels": ["Owner", "full"],
-        "selectionQuantity": "single",
-        "invoke": "remote",
-        "item": {
+    "integration": {
+        "myEditAction": {
+            "entryPoint": "context_menu",
+            "allowedPaths": "/Shared/*",
+            "types": ["file"],
+            "accessLevel": "selection",
+            "serviceURL ": "https: //integrations-staging.qa-egnyte.com/exampleuint/service",
+            "extensions": ["png", "jpg"],
+            "permissionLevels": ["Owner", "full"],
+            "selectionQuantity": "single",
+            "invocationMethod": "post_to_tab",
             "text": "Remote service call"
-        }
-    }, {
-        "entryPoint": "context_menu",
-        "hostingURL": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp",
-        "types": ["file"],
-        "extensions": ["png"],
-        "selectionQuantity": [2, 5],
-        "invoke": "hosted",
-        "item": {
+        },
+        "myViewAction": {
+            "entryPoint": "context_menu",
+            "serviceURL": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp",
+            "types": ["file"],
+            "extensions": ["png"],
+            "selectionQuantity": [2, 5],
+            "invocationMethod": "get_to_modal",
             "text": "Hosted app",
+            "icon": "http://goo.gl/F15gjA",
             "tooltip": "hello"
         }
-    }]
+    }
 
 }
