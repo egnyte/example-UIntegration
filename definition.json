@@ -19,7 +19,7 @@
             "allowedPaths": "/Shared/*",
             "types": ["file"],
             "accessLevel": "selection",
-            "serviceURL": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
+            "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
             "extensions": ["png", "jpg"],
             "permissionLevels": ["Owner", "full"],
             "selectionQuantity": "single",
@@ -28,7 +28,7 @@
         },
         "myViewAction": {
             "entryPoint": "context_menu",
-            "serviceURL": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp",
+            "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp",
             "types": ["file"],
             "extensions": ["png"],
             "selectionQuantity": [2, 5],
