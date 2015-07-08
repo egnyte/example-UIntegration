@@ -24,17 +24,17 @@
             "permissionLevels": ["Owner", "full"],
             "selectionQuantity": "single",
             "invocationMethod": "post_to_tab",
-            "text": "Remote service call"
+            "icon": "cube",
+            "text": "one item to service"
         },
         "myViewAction": {
             "entryPoint": "context_menu",
-            "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp",
+            "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
             "types": ["file"],
-            "extensions": ["png"],
             "selectionQuantity": [2, 5],
-            "invocationMethod": "get_to_modal",
-            "text": "Hosted app",
-            "icon": "http://goo.gl/F15gjA",
+            "invocationMethod": "post_to_tab",
+            "text": "multiple items to service",
+            "icon": "cubes",
             "tooltip": "hello"
         }
     }
