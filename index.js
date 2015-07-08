@@ -25,7 +25,7 @@ router.post('/service', function (req, res) {
     sessions[randId] = req.body
     console.log("[%s] got post", randId, req.body)
     res.status(200).json({
-        redirect: definition.serviceURL + "/" + randId
+        redirect: "https://integrations-staging.qa-egnyte.com/exampleuint/service/" + randId
     })
 })
 
