@@ -11,6 +11,7 @@
     "screenshots": {
         "images": ["http://imgs.xkcd.com/comics/antique_factory.png", "http://imgs.xkcd.com/comics/the_bdlpswdks_effect.png", "http://imgs.xkcd.com/comics/placebo_blocker.png"]
     },
+    "apiKey": "k969uaqyxyg7gjx2gqxdhkx7",
     "userSettings": "http://xkcd.com",
     "accessLevel": "fileSystem",
     "integrations": {
