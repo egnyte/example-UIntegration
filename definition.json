@@ -5,6 +5,7 @@
     "support": {
         "web": "http://xkcd.com"
     },
+    "userSettings":"https://integrations-staging.qa-egnyte.com/exampleuint/staticapp/settings.html",
     "type": "both",
     "appLogo": "http://goo.gl/F15gjA",
     "description": "Example UI Integration for testing purposes. Contains both kinds of invocation pattern",
@@ -25,7 +26,7 @@
             "permissionLevels": ["Owner", "full"],
             "selectionQuantity": "single",
             "invocationMethod": "post_to_tab",
-            "icon": "cube",
+            "icon": "http://goo.gl/F15gjA",
             "text": "one item to service"
         },
         "myViewAction": {
@@ -35,7 +36,7 @@
             "selectionQuantity": [2, 5],
             "invocationMethod": "post_to_tab",
             "text": "multiple items to service",
-            "icon": "cubes",
+            "icon": "http://imgs.xkcd.com/comics/the_bdlpswdks_effect.png",
             "tooltip": "hello"
         }
     }

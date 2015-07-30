@@ -4,24 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <title>an app!</title>
-    <script src="uin.js"></script>
+    <script src="sdk.js"></script>
 </head>
 
 <body>
     <h1>I'm an app!</h1>
     <p>Press my button, you know you want to.</p>
     <button id="uhoh">button!</button>
+
     <script>
-        Egnyte.appInit({
-            //normal options
-        }, function (eg, data, complete, error) {
-            console.log(eg, data, complete, error);
+        Egnyte.appInit(function (uint) {
 
             document.getElementById("uhoh").onclick = function () {
-                complete("I'm good.")
+                uint.complete("I'm good.")
             }
-
         });
+
+        window.addEventListener("message", console.log.bind(console));
     </script>
 </body>
 
