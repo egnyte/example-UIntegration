@@ -35,8 +35,18 @@
             "selectionQuantity": [2, 5],
             "invocationMethod": "post_to_tab",
             "text": "multiple items to service",
-            "icon": "http://imgs.xkcd.com/comics/the_bdlpswdks_effect.png",
+            "icon": "http://goo.gl/F15gjA",
             "tooltip": "hello"
+        },
+        "myMoreAction": {
+            "entryPoint": "more_menu",
+            "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
+            "types": ["folder"],
+            "selectionQuantity": "single",
+            "invocationMethod": "post_to_tab",
+            "text": "do stuff with folder",
+            "icon": "http://goo.gl/F15gjA",
+            "tooltip": "hello, I'm a tooltip"
         }
     }
 
