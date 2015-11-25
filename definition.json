@@ -28,6 +28,19 @@
             "icon": "http://goo.gl/F15gjA",
             "text": "one item to service"
         },
+        "myEditActionFAIcon": {
+            "entryPoint": "context_menu",
+            "allowedPaths": "/Shared/*",
+            "types": ["file"],
+            "accessLevel": "selection",
+            "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
+            "extensions": ["png", "jpg"],
+            "permissionLevels": ["Owner", "full"],
+            "selectionQuantity": "single",
+            "invocationMethod": "post_to_tab",
+            "icon": "plus-circle",
+            "text": "fa one item to service"
+        },
         "myViewAction": {
             "entryPoint": "context_menu",
             "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
@@ -46,6 +59,16 @@
             "invocationMethod": "post_to_tab",
             "text": "do stuff with folder",
             "icon": "http://goo.gl/F15gjA",
+            "tooltip": "hello, I'm a tooltip"
+        },
+        "myMoreActionFAIcon": {
+            "entryPoint": "more_menu",
+            "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
+            "types": ["folder"],
+            "selectionQuantity": "single",
+            "invocationMethod": "post_to_tab",
+            "text": "fa do stuff with folder",
+            "icon": "plus-circle",
             "tooltip": "hello, I'm a tooltip"
         }
     }
