@@ -17,7 +17,7 @@
     "integrations": {
         "myEditAction": {
             "entryPoint": "context_menu",
-            "allowedPaths": "/Shared/*",
+            "allowedPaths": ["/Shared/*"],
             "types": ["file"],
             "accessLevel": "selection",
             "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
@@ -30,7 +30,7 @@
         },
         "myEditActionFAIcon": {
             "entryPoint": "context_menu",
-            "allowedPaths": "/Shared/*",
+            "allowedPaths": ["/Shared/*"],
             "types": ["file"],
             "accessLevel": "selection",
             "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
