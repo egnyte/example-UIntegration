@@ -1,14 +1,14 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Egnyte = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*
  * PinkySwear.js 2.2.2 - Minimalistic implementation of the Promises/A+ spec
- * 
+ *
  * Public Domain. Use, modify and distribute it any way you like. No attribution required.
  *
  * NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
  *
  * PinkySwear is a very small implementation of the Promises/A+ specification. After compilation with the
- * Google Closure Compiler and gzipping it weighs less than 500 bytes. It is based on the implementation for 
- * Minified.js and should be perfect for embedding. 
+ * Google Closure Compiler and gzipping it weighs less than 500 bytes. It is based on the implementation for
+ * Minified.js and should be perfect for embedding.
  *
  *
  * PinkySwear has just three functions.
@@ -22,16 +22,16 @@
  *
  * The promise returned by pinkySwear() is a function. To fulfill the promise, call the function with true as first argument and
  * an optional array of values to pass to the then() handler. By putting more than one value in the array, you can pass more than one
- * value to the then() handlers. Here an example to fulfill a promsise, this time with only one argument: 
+ * value to the then() handlers. Here an example to fulfill a promsise, this time with only one argument:
  *         promise(true, [42]);
  *
  * When the promise has been rejected, call it with false. Again, there may be more than one argument for the then() handler:
  *         promise(true, [6, 6, 6]);
- *         
+ *
  * You can obtain the promise's current state by calling the function without arguments. It will be true if fulfilled,
  * false if rejected, and otherwise undefined.
- * 		   var state = promise(); 
- * 
+ * 		   var state = promise();
+ *
  * https://github.com/timjansen/PinkySwear.js
  */
 (function(target) {
@@ -270,7 +270,7 @@ var createErrorAlias = function (promObj) {
 
 var Promises = function (value) {
     var promise = pinkySwear(createErrorAlias);
-    promise(value);
+    promise(true,[value]);
     return promise;
 }
 
@@ -341,6 +341,7 @@ Promises.allSettled = function (array) {
 }
 
 module.exports = Promises;
+
 },{"1":1,"5":5}],4:[function(require,module,exports){
 var vkey = require(2);
 
@@ -387,17 +388,24 @@ module.exports = {
 
     onKeys: function (elem, actions, hasFocus) {
         return addListener(elem, "keyup", function (ev) {
-            ev.preventDefault && ev.preventDefault();
-            if (hasFocus() && actions[vkey[ev.keyCode]]) {
-                actions[vkey[ev.keyCode]]();
+            if (ev.target.tagName && ev.target.tagName.toLowerCase() !== "input") {
+                ev.preventDefault && ev.preventDefault();
+            }
+            ev.stopPropagation && ev.stopPropagation();
+            if (hasFocus===true || hasFocus()) {
+                if (actions[vkey[ev.keyCode]]) {
+                    actions[vkey[ev.keyCode]]();
+                } else {
+                    actions["other"] && actions["other"]();
+                }
             }
             return false;
         });
     },
 
-    createFrame: function (url,scrolling) {
+    createFrame: function (url, scrolling) {
         var iframe = document.createElement("iframe");
-        if(!scrolling){
+        if (!scrolling) {
             iframe.setAttribute("scrolling", "no");
         }
         iframe.style.width = "100%";
@@ -410,6 +418,7 @@ module.exports = {
     }
 
 }
+
 },{"2":2}],5:[function(require,module,exports){
 function each(collection, fun) {
     if (collection) {
@@ -436,11 +445,20 @@ function contains(arr, val) {
     })
     return found;
 }
-var disallowedChars = /[":<>|?*+&#\\]/;
+var disallowedChars = /[":<>|?*\\]/;
 
 function normalizeURL(url) {
     return (url).replace(/\/*$/, "");
 };
+
+function debounce(func, time) {
+    var timer;
+    return function () {
+        clearTimeout(timer);
+        timer = setTimeout(func, time);
+    }
+
+}
 
 module.exports = {
     //simple extend function
@@ -466,6 +484,7 @@ module.exports = {
             return func.apply(that, arguments);
         }
     },
+    debounce: debounce,
     contains: contains,
     each: each,
     normalizeURL: normalizeURL,
@@ -483,8 +502,12 @@ module.exports = {
         name = name.replace(/^\/\//, "/");
 
         return (name);
+    },
+    encodeURIPath: function (text){
+        return encodeURI(text).replace(/#/g,"%23");
     }
 };
+
 },{}],6:[function(require,module,exports){
 var helpers = require(5);
 
@@ -521,7 +544,10 @@ function sendMessage(targetWindow, channel, action, data, originOverride) {
         targetOrigin = originOverride;
     } else {
         try {
-            targetOrigin = targetWindow.location.origin || targetWindow.location.protocol + "//" + targetWindow.location.hostname + (targetWindow.location.port ? ":" + targetWindow.location.port : "");
+            //the if is needed as some browsers will return undefined when accessing location is forbidden
+            if (targetWindow.location.origin || targetWindow.location.protocol) {
+                targetOrigin = targetWindow.location.origin || targetWindow.location.protocol + "//" + targetWindow.location.hostname + (targetWindow.location.port ? ":" + targetWindow.location.port : "");
+            }
         } catch (E) {}
     }
     pkg = JSON.stringify({
@@ -573,8 +599,15 @@ module.exports = function (promises, dom, messages, callback) {
         sendIdentified("error", body);
     }
 
+    function close() {
+        sendIdentified("close");
+    }
+
     channel.handler = messages.createMessageHandler(channel.sourceOrigin, channel.marker, actionsHandler);
     channel._evListener = dom.addListener(window, "message", channel.handler);
+
+    dom.addListener(window, "unload", close);
+    dom.addListener(window, "pagehide", reload);
 
     //init
     messages.sendMessage(sendTarget, channel, "load", null, remoteDomain);
@@ -592,15 +625,18 @@ module.exports = function (promises, dom, messages, callback) {
 
 }
 },{}],8:[function(require,module,exports){
-window.Egnyte || (window.Egnyte = {})
+var mainEgnyte = {};
+if (typeof Egnyte !== "undefined") {
+    mainEgnyte = Egnyte;
+}
 var core = require(7);
 var promises = require(3);
 var dom = require(4);
 var messages = require(6);
 
-window.Egnyte.appInit = function appInit(callback) {
+mainEgnyte.appInit = function appInit(callback) {
     return core(promises, dom, messages, callback);
 }
-module.exports = window.Egnyte;
+module.exports = mainEgnyte;
 },{"3":3,"4":4,"6":6,"7":7}]},{},[8])(8)
 });
