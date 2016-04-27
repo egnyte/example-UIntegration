@@ -4,22 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>pretendapp</title>
-    <script src="sdk.js"></script>
 </head>
 
 <body>
-    <input type="button" value="success!" id="bts">
-    <input type="button" value="errawr :(" id="bte">
+    <p>This screen accepts settings and saves them based on the url and token below.</p>
     <pre></pre>
     <script>
-        Egnyte.appInit(function (uint) {
-            document.querySelector("pre").innerHTML = JSON.stringify(uint.data, null, 4)
-
-            document.querySelector("#bts").addEventListener("click", uint.complete.bind(null, "success"))
-            document.querySelector("#bte").addEventListener("click", uint.error.bind(null, "error"))
-        });
-
-        window.addEventListener("message", console.log.bind(console));
+            document.querySelector("pre").innerHTML = window.location.href
     </script>
 
 </body>
