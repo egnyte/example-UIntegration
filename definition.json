@@ -7,7 +7,6 @@
     },
     "userSettings":"https://integrations-staging.qa-egnyte.com/exampleuint/staticapp/settings.html",
     "type": "egnyte_ui",
-    "supportedPlatforms": [],
     "industries": [],
     "appLogo": "http://goo.gl/F15gjA",
     "description": "Example UI Integration for testing purposes. Contains both kinds of invocation pattern",
