@@ -5,6 +5,7 @@
     "support": {
         "web": "http://xkcd.com"
     },
+    "categories": [],
     "userSettings":"https://integrations-staging.qa-egnyte.com/exampleuint/staticapp/settings.html",
     "type": "egnyte_ui",
     "industries": [],
@@ -73,5 +74,4 @@
             "tooltip": "hello, I'm a tooltip"
         }
     }
-
 }
