@@ -19,7 +19,7 @@ node index.js
 
 Then you can install its definition.json in your sandbox environment.
 
-Don't have a sandbox? Contact us and start a partner relationship with Egnyte!
+Don't have a sandbox? Contact us and start a partner relationship with Egnyte! `partners@egnyte.com`
 
 
 ## Table of contents
