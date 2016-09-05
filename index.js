@@ -35,7 +35,7 @@ app.post('/exampleuint/service', function (req, res) {
 //handle Step2 of invocation process - use the ID in url to put invocationInput in session or pin ID to session...
 app.get('/exampleuint/service/:id', function (req, res) {
     if (!ongoingInvocations[req.params.id]) {
-        res.status(500).end('This invocation id does not work anymore: ', req.params.id);
+        res.status(500).end('This invocation id does not work anymore: ' + req.params.id);
     } else {
         //here you would use the credentials and data to do the interesting part
         //instead, this app just returns it so you can see what was sent
