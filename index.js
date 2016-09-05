@@ -21,9 +21,10 @@ app.use('/exampleuint/service',bodyParser.json());
 //handle Step1 of invocation process - POST with access token and details
 app.post('/exampleuint/service', function (req, res) {
     var randomInvocationId = uuid.v4(); //JavaScript tip: Math.random() is not good enough for security purposes. use a proper UUID generator instead
+    var invocationInput = req.body; //This is what documentation also calls invocationInput
     //save all incoming information in some back-end storage
-    ongoingInvocations[randomInvocationId] = req.body;
-    console.log('got post', randomInvocationId, req.body);
+    ongoingInvocations[randomInvocationId] = invocationInput;
+    console.log('got post', randomInvocationId, invocationInput);
 
     //respond with a URL to Step2 with the unique ID that identifies the input and credentials sent in step1
     res.status(200).json({
@@ -31,7 +32,7 @@ app.post('/exampleuint/service', function (req, res) {
     });
 });
 
-//handle Step2 of invocation process - use the ID in url to start a session or do whatever's needed
+//handle Step2 of invocation process - use the ID in url to put invocationInput in session or pin ID to session...
 app.get('/service/:id', function (req, res) {
     if (!ongoingInvocations[req.params.id]) {
         res.status(500).end('This invocation id does not work anymore: ', req.params.id);
