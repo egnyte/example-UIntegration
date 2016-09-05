@@ -4,24 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>an app!</title>
-    <script src="sdk.js"></script>
 </head>
 
 <body>
     <h1>I'm an app!</h1>
-    <p>Press my button, you know you want to.</p>
-    <button id="uhoh">button!</button>
+    <p>
+        Using the SDK you can let Egnyte know that the folder view needs to be refreshed or that your integration completed the process with success/error.
+        See <a href="https://github.com/egnyte/egnyte-js-sdk/blob/master/src/docs/uintegrate.md">UIntegrate plugin in SDK documentation</a>
+    </p>
 
-    <script>
-        Egnyte.appInit(function (uint) {
-
-            document.getElementById("uhoh").onclick = function () {
-                uint.complete("I'm good.")
-            }
-        });
-
-        window.addEventListener("message", console.log.bind(console));
-    </script>
 </body>
 
 </html>
