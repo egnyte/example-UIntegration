@@ -33,7 +33,7 @@ app.post('/exampleuint/service', function (req, res) {
 });
 
 //handle Step2 of invocation process - use the ID in url to put invocationInput in session or pin ID to session...
-app.get('/service/:id', function (req, res) {
+app.get('/exampleuint/service/:id', function (req, res) {
     if (!ongoingInvocations[req.params.id]) {
         res.status(500).end('This invocation id does not work anymore: ', req.params.id);
     } else {
