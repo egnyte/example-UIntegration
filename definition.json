@@ -1,0 +1,79 @@
+{
+    "appId": "exampleuint",
+    "name": "Example UI Integration",
+    "company": {
+        "name": "Partner Integrations team"
+    },
+    "support": {
+        "web": "https://xkcd.com"
+    },
+    "categories": [],
+    "userSettings":"https://integrations-staging.qa-egnyte.com/exampleuint/staticapp/settings.html",
+    "appLogo": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp/tool.png",
+    "type": "egnyte_ui",
+    "industries": [],
+    "description": "Example UI Integration for testing purposes.",
+    "screenshots": {
+        "images": ["https://imgs.xkcd.com/comics/antique_factory.png", "https://imgs.xkcd.com/comics/the_bdlpswdks_effect.png", "https://imgs.xkcd.com/comics/placebo_blocker.png"]
+    },
+    "apiKey": "k969uaqyxyg7gjx2gqxdhkx7",
+    "accessLevel": "fileSystem",
+    "integrations": {
+        "myAllAction": {
+            "entryPoint": "context_menu",
+            "types": ["file"],
+            "accessLevel": "selection",
+            "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
+            "selectionQuantity": "single",
+            "invocationMethod": "post_to_tab",
+            "icon": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp/tool.png",
+            "text": "hello, I'm here"
+        },
+        "myEditAction": {
+            "entryPoint": "context_menu",
+            "allowedPaths": ["/Shared/*"],
+            "types": ["file"],
+            "accessLevel": "selection",
+            "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
+            "extensions": ["png", "jpg"],
+            "permissionLevels": ["Owner", "full"],
+            "selectionQuantity": "single",
+            "invocationMethod": "post_to_tab",
+            "icon": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp/tool.png",
+            "text": "edit a single image (custom icon)"
+        },
+        "myEditActionFAIcon": {
+            "entryPoint": "context_menu",
+            "allowedPaths": ["/Shared/*"],
+            "types": ["file"],
+            "accessLevel": "selection",
+            "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
+            "extensions": ["png", "jpg"],
+            "permissionLevels": ["Owner", "full"],
+            "selectionQuantity": "single",
+            "invocationMethod": "post_to_tab",
+            "icon": "plus-circle",
+            "text": "edit a single image (fontawesome icon)"
+        },
+        "myViewAction": {
+            "entryPoint": "context_menu",
+            "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
+            "types": ["file"],
+            "selectionQuantity": [2, 5],
+            "invocationMethod": "post_to_tab",
+            "text": "open multiple items",
+            "icon": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp/tool.png",
+            "tooltip": "hello, I'm a tooltip"
+        },
+        "myMoreAction": {
+            "entryPoint": "more_menu",
+            "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
+            "types": ["folder"],
+            "selectionQuantity": "single",
+            "invocationMethod": "post_to_tab",
+            "text": "perform a folder action from more menu",
+            "icon": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp/tool.png",
+            "tooltip": "hello, I'm a tooltip"
+        }
+    }
+}
