@@ -21,7 +21,7 @@
     "integrations": {
         "myAllAction": {
             "entryPoint": "context_menu",
-            "types": ["file"],
+            "types": ["file", "folder"],
             "accessLevel": "selection",
             "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
             "selectionQuantity": "single",
