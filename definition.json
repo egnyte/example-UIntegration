@@ -74,6 +74,15 @@
             "text": "perform a folder action from more menu",
             "icon": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp/tool.png",
             "tooltip": "hello, I'm a tooltip"
+        },
+        "myNewAction": {
+            "entryPoint": "new_menu",
+            "serviceUrl": "https://integrations-staging.qa-egnyte.com/exampleuint/service",
+            "types": ["folder"],
+            "invocationMethod": "post_to_tab",
+            "text": "perform a folder action from new menu",
+            "icon": "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp/tool.png",
+            "tooltip": "hello, I'm a tooltip"
         }
     }
 }
