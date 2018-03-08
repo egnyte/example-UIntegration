@@ -35,7 +35,8 @@
             "invocationMethod": "post_to_tab",
             "icon":
                 "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp/tool.png",
-            "text": "hello, I'm here"
+            "text": "hello, I'm here",
+            "scope": ["Egnyte.filesystem", "Egnyte.permission", "Egnyte.user"]
         },
         "myShareAction": {
             "entryPoint": "context_menu",
