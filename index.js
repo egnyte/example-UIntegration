@@ -60,4 +60,4 @@ app.get('/exampleuint/definition.json', function (req, res) {
 });
 
 //make the http pserver listen to requests on a port
-app.listen(10003);
+app.listen(8080);
