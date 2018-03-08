@@ -9,6 +9,10 @@ var FULL_APP_HOSTNAME =  'https://integrations-staging.qa-egnyte.com';
 var app = express();
 
 
+app.use('/exampleuint/health', function(req,res){
+    res.end('ok')
+});
+
 //Serve the static files
 app.use('/exampleuint/staticapp', express.static(__dirname + '/public'));
 
