@@ -36,7 +36,7 @@
             "icon":
                 "https://integrations-staging.qa-egnyte.com/exampleuint/staticapp/tool.png",
             "text": "hello, I'm here",
-            "scope": ["Egnyte.filesystem", "Egnyte.permission", "Egnyte.user"]
+            "scope": ["Egnyte.filesystem", "Egnyte.permission", "Egnyte.user", "Egnyte.launchwebsession"]
         },
         "myShareAction": {
             "entryPoint": "context_menu",
