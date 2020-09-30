@@ -1,12 +1,12 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var uuid = require('uuid');
+const express = require('express');
+const bodyParser = require('body-parser');
+const uuid = require('uuid');
 
 
-var FULL_APP_HOSTNAME =  'https://integrations-staging.qa-egnyte.com';
+const FULL_APP_HOSTNAME =  'https://integrations-staging.qa-egnyte.com';
 
 //Create an instance of a HTTP server
-var app = express();
+const app = express();
 
 
 app.use('/exampleuint/health', function(req,res){
@@ -17,15 +17,15 @@ app.use('/exampleuint/health', function(req,res){
 app.use('/exampleuint/staticapp', express.static(__dirname + '/public'));
 
 //this variable will pretend to be a database
-var ongoingInvocations = {};
+const ongoingInvocations = {};
 
 //Parse all incoming requests as JSON if content-type says so
 app.use('/exampleuint/service',bodyParser.json());
 
 //handle Step1 of invocation process - POST with access token and details
 app.post('/exampleuint/service', function (req, res) {
-    var randomInvocationId = uuid.v4(); //JavaScript tip: Math.random() is not good enough for security purposes. use a proper UUID generator instead
-    var invocationInput = req.body; //This is what documentation also calls invocationInput
+    const randomInvocationId = uuid.v4(); //JavaScript tip: Math.random() is not good enough for security purposes. use a proper UUID generator instead
+    const invocationInput = req.body; //This is what documentation also calls invocationInput
     //save all incoming information in some back-end storage
     ongoingInvocations[randomInvocationId] = invocationInput;
     console.log('got post', randomInvocationId, invocationInput);
@@ -52,11 +52,6 @@ app.get('/exampleuint/service/:id', function (req, res) {
         //it's recommended that you create a session and save them there.
         delete ongoingInvocations[req.params.id];
     }
-});
-
-//this should not exist in an actual app, it's just here so that you can inspect the definition.json from the installed copy of this app
-app.get('/exampleuint/definition.json', function (req, res) {
-    res.sendFile('./definition.json');
 });
 
 //make the http pserver listen to requests on a port
